@@ -17,7 +17,7 @@ Todos los roles de una obra usan la misma app, cada uno desde su situación:
 
 ## Product Purpose
 
-App genérica de gestión de obras (checklist de tareas por obra) que se usa como demo de venta. Es además el laboratorio: lo que funciona acá se porta a la app de 3dF (`3df-checklist`) con la identidad de 3dF. El éxito es que un estudio de arquitectura, al verla, entienda que puede seguir sus obras de forma prolija y entregarle al comitente un PDF claro del avance.
+App genérica de gestión de obras (checklist de tareas por obra) que se usa como demo de venta. Es además el laboratorio: lo que funciona acá se porta a otras apps con la identidad de cada proyecto. El éxito es que un estudio de arquitectura, al verla, entienda que puede seguir sus obras de forma prolija y entregarle al comitente un PDF claro del avance.
 
 ## Positioning
 
@@ -33,17 +33,16 @@ Comprador objetivo: **estudios de arquitectura**. Mensaje central: seguimiento d
 ## Capabilities and Constraints
 
 - PWA single-file (`index.html`), sin build. Idioma español (es-AR).
-- Storage local con keys `3df-teskel-demo-*`.
-- Google Drive con Client ID propio (cliente B); nunca el de 3dF. Origen autorizado: `https://teskel.online`.
+- Storage local con keys `constructora-demo-*`.
+- Google Drive con Client ID propio (cliente B). Origen autorizado: `https://teskel.online`.
 - Publicada en https://teskel.online/constructora/ (Space Teskel, path `constructora/`). Push a GitHub y publicar en vivo son pasos separados.
-- **Pendiente:** el `index.html` en vivo difiere del del repo; decidir cuál queda antes de trabajar.
 - **Sin decidir:** requisitos de uso en obra (offline, sol, tamaño de toque), alcance de idiomas, política de datos de ejemplo.
 
 ## Brand Commitments
 
 - App genérica, no de ningún cliente.
-- Sin logo 3dF ni normas ISO de 3dF.
-- La identidad visual de esta demo y la de 3dF no se copian entre proyectos; solo se porta funcionalidad.
+- Sin logos, nombres ni normas de ningún cliente.
+- La identidad visual de esta demo y la de otros proyectos no se copian; solo se porta funcionalidad.
 
 ## Evidence on Hand
 
@@ -53,6 +52,6 @@ Comprador objetivo: **estudios de arquitectura**. Mensaje central: seguimiento d
 ## Product Principles
 
 1. Genérica primero: nada que ate la demo a un cliente concreto.
-2. Laboratorio: cada feature se diseña para poder portarse a 3dF sin arrastrar estética ni marca.
+2. Laboratorio: cada feature se diseña para poder portarse a otras apps sin arrastrar estética ni marca.
 3. Lo que ve el comitente (PDF, dashboard) tiene que verse presentable sin retoques.
 4. Un mismo producto sirve a cuatro roles; ninguno debería necesitar una app distinta.

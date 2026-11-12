@@ -523,10 +523,10 @@ tr.importante td:first-child{border-left:4px solid #a8792c}tr.importante .tarea{
 <script>
 (function(){
   'use strict';
-  var KEY = '3df-teskel-demo-checklist-edificio-stf-v2';
+  var KEY = 'constructora-demo-checklist-v1';
 
   var INICIAL = {
-    meta: { obra:'Edificio StF', codigo:'R-D00-P17', version:'1', fecha:'20/01/2026' },
+    meta: { obra:'Edificio Sarmiento', codigo:'R-01', version:'1', fecha:'20/01/2026' },
     rows: [],
     nextId: 1
   };
@@ -703,7 +703,7 @@ tr.importante td:first-child{border-left:4px solid #a8792c}tr.importante .tarea{
 
   // Columna "Obras": avance total por obra (todas las pestañas, pisos y tareas).
   // La obra de este checklist se calcula en vivo; si hay otros checklists (otras obras) en este dispositivo, se muestra su último avance guardado.
-  var OBRAS_KEY = '3df-teskel-demo-obras-resumen';
+  var OBRAS_KEY = 'constructora-demo-obras-resumen';
   function pctDe(rows){ var t = rows.length, h = rows.filter(function(r){ return r.ejecutado === 'SI'; }).length; return { total:t, hechas:h, pct: t ? Math.round(h*100/t) : 0 }; }
   function resumenDeObra(nombre){
     var rows = [], pisos = {}, tabs = tabsDeObra(nombre);
@@ -1205,7 +1205,7 @@ tr.importante td:first-child{border-left:4px solid #a8792c}tr.importante .tarea{
   var dbp;
   try {
     dbp = new Promise(function(res, rej){
-      var rq = indexedDB.open('3df-teskel-demo-checklist-fotos', 1);
+      var rq = indexedDB.open('constructora-demo-checklist-fotos', 1);
       rq.onupgradeneeded = function(){ rq.result.createObjectStore('fotos', { keyPath:'id' }); };
       rq.onsuccess = function(){ res(rq.result); };
       rq.onerror = function(){ rej(rq.error); };
@@ -1765,9 +1765,9 @@ tr.importante td:first-child{border-left:4px solid #a8792c}tr.importante .tarea{
   var XLSX_MIME = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
   var DRIVE = 'https://www.googleapis.com/drive/v3/files';
   var UPLOAD = 'https://www.googleapis.com/upload/drive/v3/files';
-  var LS = { change:'3df-teskel-demo-checklist-local-change', sync:'3df-teskel-demo-checklist-last-sync', remote:'3df-teskel-demo-gdrive-remote-modified',
-             ids:'3df-teskel-demo-gdrive-ids', fotos:'3df-teskel-demo-gdrive-fotos', fotoNombres:'3df-teskel-demo-gdrive-foto-nombres', fotoCarpetas:'3df-teskel-demo-gdrive-foto-carpetas', hojas:'3df-teskel-demo-gdrive-hojas',
-             linked:'3df-teskel-demo-gdrive-vinculado', token:'3df-teskel-demo-gdrive-token' };
+  var LS = { change:'constructora-demo-checklist-local-change', sync:'constructora-demo-checklist-last-sync', remote:'constructora-demo-gdrive-remote-modified',
+             ids:'constructora-demo-gdrive-ids', fotos:'constructora-demo-gdrive-fotos', fotoNombres:'constructora-demo-gdrive-foto-nombres', fotoCarpetas:'constructora-demo-gdrive-foto-carpetas', hojas:'constructora-demo-gdrive-hojas',
+             linked:'constructora-demo-gdrive-vinculado', token:'constructora-demo-gdrive-token' };
   function lsGet(k, def){ try { var v = localStorage.getItem(k); return v == null ? def : JSON.parse(v); } catch(e){ return def; } }
   function lsSet(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
 
@@ -2168,7 +2168,7 @@ tr.importante td:first-child{border-left:4px solid #a8792c}tr.importante .tarea{
     }).then(json);
   }
   // Borrado de una sola foto: estado + IndexedDB + papelera de Drive (ya o en la próxima sync)
-  var LS_FOTOS_BORRAR = '3df-teskel-demo-gdrive-fotos-borrar';
+  var LS_FOTOS_BORRAR = 'constructora-demo-gdrive-fotos-borrar';
   var fotosBorrar = lsGet(LS_FOTOS_BORRAR, []) || [];
   function papeleraDrive(idDrive){
     return api(DRIVE + '/' + encodeURIComponent(idDrive) + '?fields=id', {
@@ -2782,7 +2782,7 @@ tr.importante td:first-child{border-left:4px solid #a8792c}tr.importante .tarea{
   }
 
   // ---- Dashboard mensual: datos locales y snapshots por mes, sin servicios pagos ----
-  var DASHBOARD_DATA_KEY='3df-teskel-demo-dashboard-meses', DASHBOARD_LAST_KEY='3df-teskel-demo-lastDashboardMonth';
+  var DASHBOARD_DATA_KEY='constructora-demo-dashboard-meses', DASHBOARD_LAST_KEY='constructora-demo-lastDashboardMonth';
   var dashboardMeses=lsGet(DASHBOARD_DATA_KEY,{})||{}, dashboardInitialized=true, dashboardTimer;
   function mesActual(){return hoyISO().slice(0,7);}
   function mesAnterior(){var d=new Date();d.setDate(1);d.setMonth(d.getMonth()-1);return d.getFullYear()+'-'+pad2(d.getMonth()+1);}
@@ -2837,7 +2837,7 @@ tr.importante td:first-child{border-left:4px solid #a8792c}tr.importante .tarea{
     guardarSnapshot();$('#dashboard-month').value=typeof mes==='string'?mes:mesActual();actualizarDashboard(true);
     $('#dashboard-status').textContent='';if(!$('#dashboard').open)$('#dashboard').showModal();
     lsSet(DASHBOARD_LAST_KEY,mesActual());
-    if(!$('#dashboard-banner').hidden) lsSet('3df-teskel-demo-dashboard-fin',mesListo);
+    if(!$('#dashboard-banner').hidden) lsSet('constructora-demo-dashboard-fin',mesListo);
     $('#dashboard-banner').hidden=true;
   }
   $('#dashboard-open').addEventListener('click',function(){abrirDashboard(mesActual());});
@@ -2849,13 +2849,13 @@ tr.importante td:first-child{border-left:4px solid #a8792c}tr.importante .tarea{
     var tieneDatos=localTieneDatos()||Object.keys(dashboardMeses).some(function(m){return (dashboardMeses[m].registros||[]).length;});
     var d=new Date(), finMes=new Date(d.getFullYear(),d.getMonth()+1,0).getDate()===d.getDate();
     // An end-of-month notice is a separate acknowledgement from visiting the dashboard earlier.
-    var vistoFin=lsGet('3df-teskel-demo-dashboard-fin','');
+    var vistoFin=lsGet('constructora-demo-dashboard-fin','');
     if(tieneDatos && ((ultimo && ultimo<actual) || (finMes && vistoFin!==actual))){
       mesListo=ultimo&&ultimo<actual?mesAnterior():actual;$('#dashboard-banner').hidden=false;
     }else if(!ultimo){lsSet(DASHBOARD_LAST_KEY,actual);}
     guardarSnapshot();
   }
-  function confirmarDashboardListo(){lsSet(DASHBOARD_LAST_KEY,mesActual());lsSet('3df-teskel-demo-dashboard-fin',mesListo);$('#dashboard-banner').hidden=true;}
+  function confirmarDashboardListo(){lsSet(DASHBOARD_LAST_KEY,mesActual());lsSet('constructora-demo-dashboard-fin',mesListo);$('#dashboard-banner').hidden=true;}
   $('#dashboard-ready').addEventListener('click',function(){confirmarDashboardListo();abrirDashboard(mesListo);});
   $('#dashboard-dismiss').addEventListener('click',confirmarDashboardListo);
   function exportarDashboardHTML(mes){
