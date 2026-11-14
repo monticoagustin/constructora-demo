@@ -8,7 +8,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="teskel.online/constructora">
+<meta name="apple-mobile-web-app-title" content="OBRAS">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="icon" type="image/png" href="icon-192.png">
 <link rel="manifest" href="manifest.webmanifest">
@@ -1945,7 +1945,7 @@ body.en-portada .p-ventana{animation:p-ventana .8s .6s cubic-bezier(.2,.8,.2,1) 
     var fino = { style:'thin', color:{ argb:'FF000000' } };
     var bordes = { top:fino, left:fino, bottom:fino, right:fino };
     var relleno = function(c){ return { type:'pattern', pattern:'solid', fgColor:c }; };
-    var wb = new EJ.Workbook(); wb.creator = 'teskel.online/constructora';
+    var wb = new EJ.Workbook(); wb.creator = 'teskel.online/obras';
     var pagina = { paperSize:9, orientation:'landscape', fitToPage:true, fitToWidth:1, fitToHeight:0 };
     var usados = {};
     var conFotos = $('#pdf-fotos').checked;
@@ -1966,7 +1966,7 @@ body.en-portada .p-ventana{animation:p-ventana .8s .6s cubic-bezier(.2,.8,.2,1) 
       var izq = { vertical:'middle', horizontal:'left', indent:1 }, der = { vertical:'middle', horizontal:'right' };
       texto('B1:G1', 'CHECKLIST TAREAS', { name:'Arial', size:18, bold:true, color:BLANCO }, izq);
       texto('B2:G2', 'OBRA: ' + obraDe(tab) + '  -  ' + tab.nombre, { name:'Arial', size:11, color:BLANCO }, izq);
-      texto('B3:G3', 'teskel.online/constructora', { name:'Arial', size:9, color:{ argb:'FFCCCCCC' } }, izq);
+      texto('B3:G3', 'teskel.online/obras', { name:'Arial', size:9, color:{ argb:'FFCCCCCC' } }, izq);
       texto('H1:J1', String(state.meta.codigo || ''), { name:'Arial', size:9, bold:true, color:BLANCO }, der);
       texto('H2:J2', 'VERSIÓN: ' + (state.meta.version || ''), { name:'Arial', size:9, color:BLANCO }, der);
       texto('H3:J3', 'FECHA: ' + (state.meta.fecha || ''), { name:'Arial', size:9, color:BLANCO }, der);
@@ -2082,7 +2082,7 @@ body.en-portada .p-ventana{animation:p-ventana .8s .6s cubic-bezier(.2,.8,.2,1) 
       doc.setLineWidth(0.3);
       doc.line(M, h - 10, W - M, h - 10);
       doc.setFont('helvetica','normal'); doc.setFontSize(8); doc.setTextColor(muted[0], muted[1], muted[2]);
-      doc.text('teskel.online/constructora · ' + obraActiva(), M, h - 5);
+      doc.text('teskel.online/obras · ' + obraActiva(), M, h - 5);
       doc.text('Página ' + doc.internal.getNumberOfPages(), W - M, h - 5, { align:'right' });
     }
 
@@ -2095,7 +2095,7 @@ body.en-portada .p-ventana{animation:p-ventana .8s .6s cubic-bezier(.2,.8,.2,1) 
 
     doc.setTextColor(accent[0], accent[1], accent[2]);
     doc.setFont('helvetica','bold'); doc.setFontSize(9);
-    doc.text('teskel.online/constructora', M + 2, 15);
+    doc.text('teskel.online/obras', M + 2, 15);
     doc.setTextColor(ink[0], ink[1], ink[2]);
     doc.setFont('helvetica','bold'); doc.setFontSize(15);
     doc.text('Checklist de tareas', M + 2, 23);
@@ -2754,7 +2754,7 @@ body.en-portada .p-ventana{animation:p-ventana .8s .6s cubic-bezier(.2,.8,.2,1) 
     if (!EJ) return Promise.reject(new Error('No se pudo cargar el generador de Excel.'));
     sincronizar();
     var NEGRO = { type:'pattern', pattern:'solid', fgColor:{ argb:'FF000000' } };
-    var wb = new EJ.Workbook(); wb.creator = 'teskel.online/constructora';
+    var wb = new EJ.Workbook(); wb.creator = 'teskel.online/obras';
     var usados = {}, mapa = {};
     var tabsExport = state.tabs.filter(function(t){ return !filtroObra || norm(obraDe(t)) === norm(filtroObra); });
     if (!tabsExport.length) tabsExport = state.tabs.slice();
@@ -3355,7 +3355,7 @@ body.en-portada .p-ventana{animation:p-ventana .8s .6s cubic-bezier(.2,.8,.2,1) 
     var data=JSON.stringify(filasMes(mes)).replace(/</g,'\\u003c');
     var css='html,body{scrollbar-width:thin;scrollbar-color:#8a9bb3 #cfd8e6}::-webkit-scrollbar{width:14px;height:14px}::-webkit-scrollbar-track{background:#cfd8e6;border-radius:10px;box-shadow:inset 3px 3px 6px #8494ab,inset -3px -3px 6px #f8fafc}::-webkit-scrollbar-thumb{background:#cfd8e6;border-radius:10px;border:3px solid #cfd8e6;box-shadow:inset 2px 2px 4px #f8fafc,inset -2px -2px 4px #8494ab}body{margin:0;padding:24px;font:15px/1.6 system-ui;background:#cfd8e6;color:#1e2a3a;max-width:1000px;margin:auto}h1{overflow-wrap:anywhere}select{padding:12px;border-radius:12px;background:#cfd8e6;border:1px solid #7f91a8;margin:8px}.dashboard-cards{display:flex;gap:18px;flex-wrap:wrap}.dashboard-card,.dashboard-breakdown{border-radius:18px;padding:20px;margin:18px 0;box-shadow:6px 6px 14px #c4cdd9,-6px -6px 14px white}.dashboard-card b{display:block;font-size:30px}.dashboard-bar{height:12px;border-radius:10px;background:#a3b2c5;overflow:hidden;margin:4px 0 16px}.dashboard-bar i{display:block;height:100%;background:#405b8a}.dashboard-group summary{padding:12px 0;cursor:pointer}:focus-visible{outline:3px solid #405b8a;outline-offset:3px}';
     var script='var rows='+data+';'+escHtml.toString()+';'+dashboardMarkup.toString()+';function render(){var obra=document.getElementById("obra").value,piso=document.getElementById("piso").value,unidad=document.getElementById("unidad").value;document.getElementById("datos").innerHTML=dashboardMarkup(rows.filter(function(r){return (!obra||r.obra===obra)&&(!piso||r.piso===piso)&&(!unidad||r.unidad===unidad);}));} ["obra","piso","unidad"].forEach(function(k){var select=document.getElementById(k);Array.from(new Set(rows.map(function(r){return r[k];}))).sort().forEach(function(v){var o=document.createElement("option");o.value=v;o.textContent=v;select.appendChild(o);});select.addEventListener("change",render);});render();';
-    var html='<!doctype html><html lang="es-AR"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+escHtml(nombreMes(mes))+' · teskel.online/constructora</title><style>'+css+'</style><h1>teskel.online/constructora</h1><h2>Dashboard · '+escHtml(nombreMes(mes))+'</h2><p>Ejecutadas durante el mes y pendientes al cierre según los datos disponibles. Exportado el '+escHtml(fechaAR(hoyISO()))+'. Tocá cada grupo para ver las tareas.</p><label>Obra <select id="obra"><option value="">Todas</option></select></label><label>Piso <select id="piso"><option value="">Todos</option></select></label><label>Departamento / unidad <select id="unidad"><option value="">Todas</option></select></label><main id="datos"></main><script>'+script+'<\/script></html>';
+    var html='<!doctype html><html lang="es-AR"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+escHtml(nombreMes(mes))+' · teskel.online/obras</title><style>'+css+'</style><h1>teskel.online/obras</h1><h2>Dashboard · '+escHtml(nombreMes(mes))+'</h2><p>Ejecutadas durante el mes y pendientes al cierre según los datos disponibles. Exportado el '+escHtml(fechaAR(hoyISO()))+'. Tocá cada grupo para ver las tareas.</p><label>Obra <select id="obra"><option value="">Todas</option></select></label><label>Piso <select id="piso"><option value="">Todos</option></select></label><label>Departamento / unidad <select id="unidad"><option value="">Todas</option></select></label><main id="datos"></main><script>'+script+'<\/script></html>';
     return {blob:new Blob([html],{type:'text/html;charset=utf-8'}),nombre:nombreMes(mes)+'.html'};
   }
   $('#dashboard-export').addEventListener('click',function(){var archivo=exportarDashboardHTML($('#dashboard-month').value||mesActual());descargarArchivo(archivo.blob,archivo.nombre);});

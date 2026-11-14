@@ -1,7 +1,7 @@
-name: Publicar en teskel.online/constructora
+name: Publicar en teskel.online/obras
 
-# En cada push a main, copia la app a la carpeta constructora/ del repo del Space
-# "teskel" en Spacefast. Spacefast publica teskel solo. Solo toca constructora/.
+# En cada push a main, copia la app a la carpeta obras/ del repo del Space
+# "teskel" en Spacefast. Spacefast publica teskel solo. Solo toca obras/.
 
 on:
   push:
@@ -14,7 +14,7 @@ concurrency:
 
 env:
   TESKEL_SPACE_ID: spc_02ae51f4db5a45b3a6c013388fe16504
-  CARPETA_DESTINO: constructora
+  CARPETA_DESTINO: obras
 
 jobs:
   publicar:
@@ -72,7 +72,7 @@ jobs:
       - name: Clonar teskel
         run: git clone --quiet --depth 1 --branch main "$TESKEL_REMOTE" teskel
 
-      - name: Copiar la app a teskel/constructora
+      - name: Copiar la app a teskel/obras
         run: |
           mkdir -p "teskel/${CARPETA_DESTINO}"
           # Solo los archivos que sirve la app; los docs del repo no se publican.

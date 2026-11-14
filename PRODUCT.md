@@ -35,7 +35,7 @@ Comprador objetivo: **estudios de arquitectura**. Mensaje central: seguimiento d
 - PWA single-file (`index.html`), sin build. Idioma español (es-AR).
 - Storage local con keys `constructora-demo-*`.
 - Google Drive con Client ID propio (cliente B). Origen autorizado: `https://teskel.online`.
-- Publicada en https://teskel.online/constructora/ (Space Teskel, path `constructora/`). Push a GitHub y publicar en vivo son pasos separados.
+- Publicada en https://teskel.online/obras/ (Space Teskel, path `obras/`). Cada push a `main` publica en vivo vía GitHub Action.
 - **Sin decidir:** requisitos de uso en obra (offline, sol, tamaño de toque), alcance de idiomas, política de datos de ejemplo.
 
 ## Brand Commitments
