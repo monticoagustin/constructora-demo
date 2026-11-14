@@ -693,7 +693,7 @@ body.en-portada .p-ventana{animation:p-ventana .8s .6s cubic-bezier(.2,.8,.2,1) 
 </style>
 </head>
 <body>
-<script>(function(){var a=false;try{a=localStorage.getItem("constructora-demo-app")}catch(e){}if(location.hash!=="#app"&&(location.hash==="#portada"||!a))document.body.classList.add("en-portada")})();</script>
+<script>if(location.hash!=="#app")document.body.classList.add("en-portada");</script>
 <div id="portada" aria-label="Presentación de OBRAS">
   <nav class="p-nav p-wrap" aria-label="Portada">
     <a class="p-logo" href="#portada" aria-label="OBRAS, inicio"><i class="p-marca" aria-hidden="true"></i>OBRAS</a>
@@ -3407,9 +3407,8 @@ body.en-portada .p-ventana{animation:p-ventana .8s .6s cubic-bezier(.2,.8,.2,1) 
 })();
 </script>
 <script>
-// Portada de venta: se ve al entrar; "Abrir la app" la oculta y se recuerda en este dispositivo.
+// Portada de venta: siempre se ve al entrar; #app abre la app directo (y la PWA instalada).
 (function(){
-  var KEY = 'constructora-demo-app';
   var body = document.body;
   function contar(){
     if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -3427,7 +3426,6 @@ body.en-portada .p-ventana{animation:p-ventana .8s .6s cubic-bezier(.2,.8,.2,1) 
   }
   function verApp(){
     body.classList.remove('en-portada');
-    try { localStorage.setItem(KEY, '1'); } catch (e) {}
     if (location.hash !== '#app') history.replaceState(null, '', '#app');
     window.scrollTo(0, 0);
   }

@@ -35,7 +35,7 @@ rounded:
 Marca genérica **OBRAS** (casita amarilla + palabra en Anybody extendida). Fondo noche, tarjetas crema redondeadas, un solo acento amarillo. Reemplaza al estilo Señalética (2026-11-14), a partir de una referencia que eligió el usuario.
 
 - Todo el estilo vive en `<style id="skin-obras">` de `index.html`; fuentes Anybody e Instrument Sans (OFL) en `fonts/`; íconos Tabler (MIT) embebidos.
-- **Portada de venta** (`#portada`): se ve al entrar; "Abrir la app" la oculta y se recuerda en el dispositivo (`constructora-demo-app`). `#app` abre la app directo (la PWA instalada arranca ahí); "Ver portada" vuelve.
+- **Portada de venta** (`#portada`): siempre se ve al entrar a teskel.online/constructora. "Abrir la app" pasa a `#app` (recargar ahí sigue en la app); `#app` abre la app directo y la PWA instalada arranca ahí; "Ver portada" vuelve.
 - Portada: "OBRAS" gigante, losa amarilla con grúas dibujadas en SVG (sin fotos de stock), ventana de la app con datos de muestra, funciones, roles y cierre. Si se consiguen fotos reales, reemplazan la losa.
 
 ## Colors
