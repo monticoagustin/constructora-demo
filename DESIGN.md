@@ -1,83 +1,63 @@
 ---
-name: Constructora Demo
-description: Seguimiento de obra genérico con estética de señalética de obra, para mostrar a estudios de arquitectura.
+name: OBRAS (Constructora Demo)
+description: Checklist de obra genérico, crema sobre noche con amarillo de acento, con portada de venta.
 colors:
-  fondo: "#E9E7E1"
-  tarjeta: "#FFFFFF"
-  hundido: "#F2F0EA"
-  tinta: "#16181A"
-  tinta-suave: "#3F4348"
-  amarillo-seguridad: "#FFC20E"
-  ok: "#127A3E"
-  ok-fondo: "#E3F2E8"
-  aviso: "#C98A00"
-  importante-fondo: "#FFF3CC"
-  peligro: "#B8141F"
+  noche: "#121212"
+  noche-2: "#1C1C1C"
+  crema: "#F6F3EC"
+  crema-2: "#EEE9DD"
+  tinta: "#17171A"
+  tinta-suave: "#5B574E"
+  amarillo: "#F5B700"
+  amarillo-suave: "#FFF0C2"
+  ok: "#1D7044"
+  ok-fondo: "#E3F0E6"
+  peligro: "#B3262E"
 typography:
-  titulo:
-    fontFamily: "Barlow Condensed"
-    fontWeight: 700
-    textTransform: uppercase
-  cifras:
-    fontFamily: "Barlow Condensed"
-    fontWeight: 700
+  display:
+    fontFamily: "Anybody"
+    fontWeight: 800-900
+    fontStretch: "110-150%"
   cuerpo:
-    fontFamily: "Barlow"
+    fontFamily: "Instrument Sans"
     fontSize: "15px"
-    fontWeight: 400
-  rotulo:
-    fontFamily: "Barlow Condensed"
-    fontWeight: 600
-    textTransform: uppercase
-    letterSpacing: "0.04em"
 rounded:
-  todo: "0"
-borders:
-  control: "2px solid #16181A"
-shadows:
-  pieza: "3px 3px 0 #16181A"
-  boton-encabezado: "3px 3px 0 #FFC20E"
+  pieza: "8px"
+  control: "12px"
+  tarjeta: "18px"
+  pildora: "999px"
 ---
 
-# Design System: Constructora Demo ("Señalética")
+# Design System: OBRAS
 
 ## Overview
 
-**Norte creativo: cartelería de obra.** La app se lee como la señalética de un obrador: negro, blanco y amarillo de seguridad, bordes gruesos, esquinas rectas y tipografía condensada. Alto contraste para usarla al sol y con guantes. Reemplaza al look neumórfico anterior (sin relieves suaves ni sombras difusas).
+Marca genérica **OBRAS** (casita amarilla + palabra en Anybody extendida). Fondo noche, tarjetas crema redondeadas, un solo acento amarillo. Reemplaza al estilo Señalética (2026-11-14), a partir de una referencia que eligió el usuario.
 
-- El estilo vive en el bloque `<style id="skin-senaletica">` de `index.html`, encima del CSS anterior.
-- Fuentes Barlow y Barlow Condensed (OFL) en `fonts/`, servidas junto a la app.
-- Íconos: Tabler Icons (MIT), embebidos como máscaras SVG en el CSS.
-- Genérica: sin logo ni identidad de ningún cliente. Los íconos de la PWA son los de Teskel, provisorios.
+- Todo el estilo vive en `<style id="skin-obras">` de `index.html`; fuentes Anybody e Instrument Sans (OFL) en `fonts/`; íconos Tabler (MIT) embebidos.
+- **Portada de venta** (`#portada`): se ve al entrar; "Abrir la app" la oculta y se recuerda en el dispositivo (`constructora-demo-app`). `#app` abre la app directo (la PWA instalada arranca ahí); "Ver portada" vuelve.
+- Portada: "OBRAS" gigante, losa amarilla con grúas dibujadas en SVG (sin fotos de stock), ventana de la app con datos de muestra, funciones, roles y cierre. Si se consiguen fotos reales, reemplazan la losa.
 
 ## Colors
 
-- **Superficies:** `fondo` (página), `tarjeta` (bloques), `hundido` (pistas, filtros).
-- **Tinta:** `tinta` para texto, bordes y botón primario; `tinta-suave` para metadatos.
-- **Amarillo de seguridad:** acento único. Texto del botón primario sobre negro, pestaña y obra seleccionadas, filtro activo, aviso "Vencen mañana", franjas de peligro.
-- **Estado:** `ok` (ejecutada, con la palabra SÍ), `aviso` (importante), `peligro` (borrar). Nunca solo color.
+Noche para la página y el encabezado; crema para tarjetas; amarillo para la acción principal, la pestaña y el filtro activos, la obra seleccionada, el aviso "Vencen mañana" y la barra de avance. Verde solo para ejecutado, siempre con la palabra SÍ.
 
 ## Typography
 
-Títulos, cifras y rótulos en Barlow Condensed (mayúscula en títulos y rótulos); texto en Barlow. Las cifras del resumen van grandes (hasta 52px).
+Títulos y cifras en Anybody 800-900 extendida; texto en Instrument Sans. Cifras del resumen grandes (52px).
 
-## Elevation & Shapes
+## Shapes & Depth
 
-Todo con esquinas rectas. La profundidad es una sombra dura desplazada (`pieza`, 3px). El encabezado es negro y cierra con una franja de peligro. Las barras de avance son cintas rayadas amarillo y negro.
+Tarjetas de 18px, controles de 12px, botones y pestañas en píldora. Sombra suave solo para separar tarjetas del fondo noche.
 
 ## Motion
 
-Seco y mecánico, sin rebotes. Se apaga con "reducir movimiento".
+- Portada: las letras de OBRAS suben una vez, la losa se despliega, la ventana entra y sus números cuentan; el gancho de la grúa se mueve lento.
+- App: sello al tildar, contadores que ruedan, cinta de avance que corre, borrar con Deshacer (5 s), botones que se achican al presionar.
+- Todo se apaga con "reducir movimiento".
 
-- **Sello al tildar:** el botón SÍ se estampa (escala 1.22 a 1), la fila se pinta de verde de izquierda a derecha y el título se tacha.
-- **Contadores:** Tareas, Pendientes, Ejecutadas y % entran rodando desde arriba cuando cambian.
-- **Cinta de avance:** al cambiar el %, la barra se mueve en 0,6 s con las franjas corriendo. Al 100 % la cinta pasa a verde y aparece "Todo ejecutado".
-- **Borrar con Deshacer:** la fila sale hacia la izquierda y un aviso negro ofrece Deshacer durante 5 s; las fotos se borran recién cuando vence.
-- **Botones físicos:** al presionar, el botón baja 3px y su sombra desaparece.
+## Don'ts
 
-## Do's and Don'ts
-
-- **Do** usar el amarillo solo para lo seleccionado, lo urgente y el acento.
-- **Do** mantener bordes de 2px y esquinas rectas en todo control.
-- **Don't** volver a sombras difusas, gradientes suaves ni neumorfismo.
-- **Don't** usar Inter, Roboto ni logos o datos de clientes reales.
+- Nada de logos, nombres ni datos de clientes reales; no inventar precios ni testimonios en la portada.
+- No volver al neumorfismo ni a bordes de color a un costado.
+- No usar Archivo (es de la identidad de otro proyecto), Inter ni Roboto.

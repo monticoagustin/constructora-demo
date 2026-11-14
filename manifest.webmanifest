@@ -1,11 +1,11 @@
 {
-  "name": "teskel.online/constructora",
-  "short_name": "teskel.online/constructora",
-  "start_url": "./",
+  "name": "OBRAS · Checklist de obra",
+  "short_name": "OBRAS",
+  "start_url": "./#app",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#E9E7E1",
-  "theme_color": "#16181A",
+  "background_color": "#121212",
+  "theme_color": "#121212",
   "icons": [
     {
       "src": "icon-192.png",
