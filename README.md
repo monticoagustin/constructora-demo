@@ -5,7 +5,8 @@ App GENÉRICA de gestión de obras, marca OBRAS (ver `DESIGN.md`). Es el laborat
 - Demo: https://teskel.online/obras/ (desde 2026-11-14; `/constructora/` y `/demo/constructora/` redirigen con 301)
 - Alojada en el Space Teskel, path `obras/`.
 - PWA single-file: Anybody e Instrument Sans (en `fonts/`), íconos Tabler embebidos.
-- Drive: CARPETA = `constructora` (nombre de la carpeta en Drive; no cambia con la URL)
+- Drive: carpeta raíz `OBRAS` con `Oficial/Planillas/{obra}/{obra}.xlsx` (+ fotos) y `Versiones/{nombre}_{fecha}/`. La primera sincronización renombra la vieja `constructora` a `OBRAS` y mueve `Planillas` a `Oficial/`.
+- Funciones traídas de la app 3dF (2026-11-14): versiones (Exportar/Importar información en ZIP, "Viendo: Oficial", Borrar versión), dashboard de gerencia, editor de fotos con lápiz, Excel por obra, código del documento editable con confirmación. Las pestañas ya no completan Piso y Unidad.
 - Storage keys: `constructora-demo-*`
 - OAuth Client ID: cliente "B", ya cargado en `index.html` (`GOOGLE_CLIENT_ID`). Origen autorizado necesario: `https://teskel.online` (el origen es solo el dominio, no cuenta la ruta).
 
